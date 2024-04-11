@@ -19,9 +19,9 @@ export class HomeComponent implements OnInit {
     date: '',
     completed: false,
     description: '',
-  }; // Tarea en edición
-  userId: any; // Supongamos que ya tienes el userId disponible
-  editing: boolean = false; // Bandera para controlar la edición
+  };
+  userId: any;
+  editing: boolean = false;
   newTaskName = '';
   constructor(
     private taskService: TaskService,
@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getId();
-    this.getTasks(); // Llamamos a getTasks al inicializar el componente
+    this.getTasks();
   }
 
   getId(): void {
@@ -52,15 +52,13 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('date', task.date.toString());
 
     localStorage.setItem('title', task.title.toString());
-
-    // Activamos el modo de edición
   }
 
   saveTask(form: NgForm): void {
     if (form.valid) {
       this.taskService.updateTask(this.editedTask).subscribe(() => {
-        this.editing = false; // Desactivamos el modo de edición
-        this.getTasks(); // Actualizamos la lista de tareas
+        this.editing = false;
+        this.getTasks();
       });
     }
   }
@@ -72,15 +70,14 @@ export class HomeComponent implements OnInit {
     }
   }
   deleteTask(task: Task): void {
-    // Implementa la lógica para eliminar la tarea
     this.taskService.deleteTask(task.id).subscribe(() => {
-      this.tasks = this.tasks.filter((t) => t.id !== task.id); // Eliminamos la tarea de la lista
+      this.tasks = this.tasks.filter((t) => t.id !== task.id);
       console.log('Tarea eliminada:', task);
     });
   }
 
   toggleCompleted(task: Task): void {
-    task.completed = !task.completed; // Cambiamos el estado de completado
+    task.completed = !task.completed;
     this.taskService.updateTask(task).subscribe(() => {});
   }
 
