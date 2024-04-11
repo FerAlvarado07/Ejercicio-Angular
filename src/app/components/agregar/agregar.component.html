@@ -1,0 +1,47 @@
+<div class="formAdd-container">
+  <h2>Agregar tarea</h2>
+  <form #editForm="ngForm" (ngSubmit)="addTask()" class="formI">
+    <mat-form-field class="form-group" appearance="fill">
+      <mat-label>Titulo:</mat-label>
+      <input
+        matInput
+        type="text"
+        name="titulo"
+        [(ngModel)]="newTaskTitle"
+        required
+        #editInput="ngModel"
+      />
+    </mat-form-field>
+    <mat-form-field class="form-group" appearance="fill">
+      <mat-label>Descripción:</mat-label>
+      <input
+        matInput
+        type="text"
+        name="titulo"
+        [(ngModel)]="newTaskDescription"
+        required
+        #editInput="ngModel"
+      />
+    </mat-form-field>
+    <mat-form-field class="form-group" appearance="fill">
+      <mat-label>Fecha de termino:</mat-label>
+      <input
+        matInput
+        type="date"
+        name="fecha"
+        [(ngModel)]="newTaskDate"
+        required
+        #editInput="ngModel"
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!editForm.form.valid"
+    >
+      Agregar
+    </button>
+  </form>
+</div>

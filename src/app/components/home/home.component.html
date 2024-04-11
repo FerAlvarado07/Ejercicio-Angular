@@ -1,0 +1,33 @@
+<div class="todo-container">
+  <div class="title-container"><h2 class="title">TO Do List</h2></div>
+  <div class="logout-container">
+    <button (click)="logout()" class="btnLogout">Logout</button>
+  </div>
+
+  <button (click)="addTask()">Agregar tarea</button>
+
+  <div class="results-container">
+    <ul>
+      <li *ngFor="let task of tasks">
+        <div [ngClass]="{ rojo: !task.completed, verde: task.completed }">
+          <div class="item">
+            Titulo:{{ task.title }}
+            <button (click)="editTask(task)">Editar</button>
+            <button (click)="confirmDelete(task)" class="delete">
+              Eliminar
+            </button>
+            <div>Estatus</div>
+            <input
+              type="checkbox"
+              [checked]="task.completed"
+              (change)="toggleCompleted(task)"
+            />
+            Fecha de termino: {{ task.date }} Descripcion:{{ task.description }}
+          </div>
+        </div>
+      </li>
+
+      <p *ngIf="tasks.length == 0" class="Notasks">No hay tareas</p>
+    </ul>
+  </div>
+</div>
