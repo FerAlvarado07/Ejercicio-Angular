@@ -15,6 +15,19 @@ export class AuthService {
   isAuth: boolean = false;
   currentlog = {};
 
+  setIsAuth(isAuth: boolean): void {
+    if (isAuth) {
+      localStorage.setItem('token', 'token');
+    } else {
+      localStorage.clear();
+    }
+  }
+
+  getIsAuth(): boolean {
+    let token = localStorage.getItem('token');
+    return token != '' && token != null;
+  }
+
   login(username: string, password: string): Observable<any> {
     return this.http.get<any[]>(this.apiUsers).pipe(
       map((users) => {
@@ -23,6 +36,7 @@ export class AuthService {
             (user) => user.email === username && user.password === password
           ) || false;
         if (this.isAuth) {
+          localStorage.setItem('token', 'token');
           this.router.navigate(['/home']);
         }
         return this.isAuth;
@@ -36,5 +50,6 @@ export class AuthService {
 
   logout() {
     this.router.navigate(['/login']);
+    localStorage.clear();
   }
 }

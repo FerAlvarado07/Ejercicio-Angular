@@ -53,26 +53,42 @@
     {
       "id": 10,
       "userId": "1",
-      "title": "ppppp",
-      "date": "2024-04-25",
-      "completed": true,
-      "description": "hjkjh"
+      "title": "Tarea 1",
+      "date": "2024-04-19",
+      "completed": false,
+      "description": "Esta es la tarea 1"
     },
     {
       "id": 12,
       "userId": "1",
-      "title": "fghghgh",
-      "date": "01-07-1999",
-      "completed": false,
-      "description": "Estas es la descripcion"
+      "title": "tarea 2",
+      "date": "2024-04-20",
+      "completed": true,
+      "description": "Esta es la tarea 2"
     },
     {
       "id": 17,
-      "date": "2024-04-06",
       "userId": "1",
-      "title": "lñ",
+      "title": "Tarea 3",
+      "date": "2024-04-20",
       "completed": false,
-      "description": "gfhgfh"
+      "description": "Esta es la tarea 3"
+    },
+    {
+      "id": 18,
+      "userId": "1",
+      "title": "Tarea 4",
+      "date": "2024-04-22",
+      "completed": true,
+      "description": "Esta es la tarea 4"
+    },
+    {
+      "id": 19,
+      "date": "2024-04-13",
+      "userId": "4",
+      "title": "Caminar",
+      "completed": false,
+      "description": "Voy a caminar"
     }
   ]
 }
